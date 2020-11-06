@@ -67,8 +67,8 @@ ORDER BY
  
 
 SELECT                                                                                                 
-    ProductCategory.Name AS Categoria,                   
-    MAX(SalesOrderDetail.Linetotal) AS 'Higher Sales Value',
+    ProductCategory.Name AS Category,                   
+    MAX(SalesOrderDetail.Linetotal) AS 'Highest Sales Value',
     MIN(sod.Linetotal) AS 'Lowest Sales Value'                                        
 FROM 
     SalesOrderHeader
@@ -90,7 +90,7 @@ ORDER BY
 */
 
 SELECT 
-    prod.Name AS Produto,
+    prod.Name AS Product,
     SUM(sod.LineTotal) AS 'Total Sales',
     ROW_NUMBER() OVER(ORDER BY SUM(sod.LineTotal) DESC) AS Ranking
 FROM 
